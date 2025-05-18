@@ -6,6 +6,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -25,6 +26,14 @@ public class Contact_Us_Steps {
     @After
     public void tearDown(){
         this.driver.quit();
+    }
+
+    public String generateRandomNumber(int length){
+        return RandomStringUtils.randomNumeric(length);
+    }
+
+    public String generateRandomString(int length){
+        return RandomStringUtils.randomAlphabetic(length);
     }
 
     @Given("I access the webdriver university contact us page")
