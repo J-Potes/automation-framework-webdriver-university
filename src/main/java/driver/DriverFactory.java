@@ -10,6 +10,13 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 public class DriverFactory {
     private static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
 
+    public static WebDriver getDriver(){
+        if(webDriver.get() == null){
+            webDriver.set(createDriver());
+        }
+        return webDriver.get();
+    }
+
     private static WebDriver createDriver(){
         WebDriver driver = null;
 
