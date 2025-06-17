@@ -1,0 +1,35 @@
+package driver;
+
+import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+
+public class DriverFactory {
+    private static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
+
+    private static WebDriver createDriver(){
+        WebDriver driver = null;
+
+        String browserType = "chrome";
+
+        switch(browserType){
+            case "chrome" -> {
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+                driver = new ChromeDriver(chromeOptions);
+                break;
+            }
+            case "firefox" -> {
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+                driver = new FirefoxDriver(firefoxOptions);
+                break;
+            }
+        }
+        driver.manage().window().maximize();
+        return driver;
+    }
+}
