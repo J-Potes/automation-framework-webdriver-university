@@ -32,4 +32,9 @@ public class DriverFactory {
         driver.manage().window().maximize();
         return driver;
     }
+
+    public static void cleanUpDriver() {
+        webDriver.get().quit();
+        webDriver.remove();
+    }
 }
