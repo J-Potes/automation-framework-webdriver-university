@@ -6,10 +6,15 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import java.util.Iterator;
 
+import static driver.DriverFactory.getDriver;
+
 public class Login_Steps {
+    private WebDriver driver = getDriver();
+
     @Given("I access the webdriver university home page")
     public void i_access_the_webdriver_university_home_page() {
         this.driver.get("https://www.webdriveruniversity.com");
