@@ -4,11 +4,12 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import java.util.Iterator;
+import java.time.Duration;
+import java.util.ArrayList;
 
 import static driver.DriverFactory.getDriver;
 
@@ -22,23 +23,23 @@ public class Login_Steps {
 
     @And("I click on the Login Portal option")
     public void i_click_on_the_login_portal_option() {
-        this.driver.findElement(By.id("login-portal")).click();
-        String originalTab = this.driver.getWindowHandle();
-        Iterator var2 = this.driver.getWindowHandles().iterator();
+        WebElement element = driver.findElement(By.xpath("//a[@id='login-portal']"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true); window.scrollBy(0,-100);", element);
 
-        while(var2.hasNext()) {
-            String tab = (String)var2.next();
-            if (!tab.equals(originalTab)) {
-                this.driver.switchTo().window(tab);
-                break;
-            }
-        }
+        element.click();
 
+//        this.driver.findElement(By.id("login-portal")).click();
+
+        ArrayList<String> tabs = new ArrayList<>(this.driver.getWindowHandles());
+        this.driver.switchTo().window(tabs.get(1)); // id of the tab
     }
 
     @When("I enter a username {}")
     public void i_enter_a_username(String username) {
-        this.driver.findElement(By.id("text")).sendKeys(new CharSequence[]{username});
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("text")));
+//        this.driver.findElement(By.id("text")).sendKeys(new CharSequence[]{username});
+        element.sendKeys(new CharSequence[]{username});
     }
 
     @And("I enter a password {}")
