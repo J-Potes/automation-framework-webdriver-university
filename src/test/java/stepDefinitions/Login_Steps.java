@@ -1,36 +1,15 @@
 package stepDefinitions;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.PageLoadStrategy;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-import org.openqa.selenium.WebDriver;
 import java.util.Iterator;
 
 public class Login_Steps {
-    public WebDriver driver;
-
-    @Before
-    public void setup(){
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        this.driver = new ChromeDriver(chromeOptions);
-        this.driver.manage().window().maximize();
-    }
-
-    @After
-    public void tearDown(){
-        this.driver.quit();
-    }
-
     @Given("I access the webdriver university home page")
     public void i_access_the_webdriver_university_home_page() {
         this.driver.get("https://www.webdriveruniversity.com");
