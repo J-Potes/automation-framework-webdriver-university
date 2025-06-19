@@ -10,8 +10,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import pageObjects.Base_PO;
 
-import static driver.DriverFactory.getDriver;
-
 public class Contact_Us_Steps extends Base_PO {
     private WebDriver driver = getDriver();
 
@@ -63,8 +61,10 @@ public class Contact_Us_Steps extends Base_PO {
 
     @And("I click on the submit button")
     public void i_click_on_the_submit_button() {
-        driver.findElement(By.xpath("//input[@type='submit']")).click();
+//        driver.findElement(By.xpath("//input[@type='submit']")).click();
+        clickElement(By.xpath("//input[@type='submit']"));
     }
+
     @Then("I should be presented with a successful contact us submission message")
     public void i_should_be_presented_with_a_successful_contact_us_submission_message() {
         WebElement contactUs_Submission_Message = driver.findElement(By.xpath("//div[@id='contact_reply']/h1"));
