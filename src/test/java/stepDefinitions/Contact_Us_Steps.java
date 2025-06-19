@@ -21,36 +21,44 @@ public class Contact_Us_Steps extends Base_PO {
     }
     @When("I enter a unique first name")
     public void i_enter_a_unique_first_name() {
-        driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys("AutoFN" + generateRandomNumber(5));
+//        driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys("AutoFN" + generateRandomNumber(5));
+        sendKeys(By.xpath("//input[@name='first_name']"), "AutoFN" + generateRandomNumber(5));
     }
     @And("I enter a unique last name")
     public void i_enter_a_unique_last_name() {
-        driver.findElement(By.xpath("//input[@name='last_name']")).sendKeys("AutoLN" + generateRandomNumber(5));
+//        driver.findElement(By.xpath("//input[@name='last_name']")).sendKeys("AutoLN" + generateRandomNumber(5));
+        sendKeys(By.xpath("//input[@name='last_name']"), "AutoLN" + generateRandomNumber(5));
     }
     @And("I enter a unique email address")
     public void i_enter_a_unique_email_address() {
-        driver.findElement(By.xpath("//input[@name='email']")).sendKeys("AutoEmail" + generateRandomNumber(5) + "@email.com");
+//        driver.findElement(By.xpath("//input[@name='email']")).sendKeys("AutoEmail" + generateRandomNumber(5) + "@email.com");
+        sendKeys(By.xpath("//input[@name='email']"), "AutoEmail" + generateRandomNumber(5) + "@email.com");
     }
     @And("I enter a unique comment")
     public void i_enter_a_unique_comment() {
-        driver.findElement(By.xpath("//textarea[@name='message']")).sendKeys("Hello world " + generateRandomString(20));
+//        driver.findElement(By.xpath("//textarea[@name='message']")).sendKeys("Hello world " + generateRandomString(20));
+        sendKeys(By.xpath("//textarea[@name='message']"), "Hello world " + generateRandomString(20));
     }
 
     @When("I enter a specific first name {word}")
     public void i_enter_a_specific_first_name(String firstName) {
-        driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys(firstName);
+//        driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys(firstName);
+        sendKeys(By.xpath("//input[@name='first_name']"), firstName);
     }
     @And("I enter a specific last name {word}")
     public void i_enter_a_specific_last_name(String lastName) {
-        driver.findElement(By.xpath("//input[@name='last_name']")).sendKeys(lastName);
+//        driver.findElement(By.xpath("//input[@name='last_name']")).sendKeys(lastName);
+        sendKeys(By.xpath("//input[@name='last_name']"), lastName);
     }
     @And("I enter a specific email address {word}")
     public void i_enter_a_specific_email_address(String email) {
-        driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
+//        driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
+        sendKeys(By.xpath("//input[@name='email']"), email);
     }
     @And("I enter a specific comment {string}")
     public void i_enter_a_specific_comment(String comment) {
-        driver.findElement(By.xpath("//textarea[@name='message']")).sendKeys(comment);
+//        driver.findElement(By.xpath("//textarea[@name='message']")).sendKeys(comment);
+        sendKeys(By.xpath("//textarea[@name='message']"), comment);
     }
 
     @And("I click on the submit button")
