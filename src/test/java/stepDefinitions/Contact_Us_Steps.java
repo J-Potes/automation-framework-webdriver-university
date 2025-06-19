@@ -9,13 +9,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import pageObjects.Base_PO;
+import pageObjects.Contact_Us_PO;
 
 public class Contact_Us_Steps extends Base_PO {
     private WebDriver driver = getDriver();
 
+    private Contact_Us_PO contact_us_po;
+
+    public Contact_Us_Steps(Contact_Us_PO contact_us_po){
+        this.contact_us_po = contact_us_po;
+    }
+
     @Given("I access the webdriver university contact us page")
     public void i_access_the_webdriver_university_contact_us_page(){
-        navigateTo_URL("https://www.webdriveruniversity.com/Contact-Us/contactus.html");
+        contact_us_po.navigateTo_WebDriverUniversity_ContactUs_Page();
     }
     @When("I enter a unique first name")
     public void i_enter_a_unique_first_name() {
