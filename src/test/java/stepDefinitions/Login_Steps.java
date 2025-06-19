@@ -20,7 +20,7 @@ public class Login_Steps extends Base_PO {
 
     @Given("I access the webdriver university home page")
     public void i_access_the_webdriver_university_home_page() {
-        this.driver.get("https://www.webdriveruniversity.com");
+        navigateTo_URL("https://www.webdriveruniversity.com");
     }
 
     @And("I click on the Login Portal option")

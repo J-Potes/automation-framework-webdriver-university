@@ -17,7 +17,7 @@ public class Contact_Us_Steps extends Base_PO {
 
     @Given("I access the webdriver university contact us page")
     public void i_access_the_webdriver_university_contact_us_page(){
-        driver.get("https://www.webdriveruniversity.com/Contact-Us/contactus.html");
+        navigateTo_URL("https://www.webdriveruniversity.com/Contact-Us/contactus.html");
     }
     @When("I enter a unique first name")
     public void i_enter_a_unique_first_name() {
