@@ -28,7 +28,8 @@ public class Login_Steps extends Base_PO {
         WebElement element = driver.findElement(By.xpath("//a[@id='login-portal']"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true); window.scrollBy(0,-100);", element);
 
-        element.click();
+//        element.click();
+        clickElement(element);
 
 //        this.driver.findElement(By.id("login-portal")).click();
 
@@ -38,20 +39,23 @@ public class Login_Steps extends Base_PO {
 
     @When("I enter a username {}")
     public void i_enter_a_username(String username) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("text")));
-//        this.driver.findElement(By.id("text")).sendKeys(new CharSequence[]{username});
-        element.sendKeys(new CharSequence[]{username});
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("text")));
+//        element.sendKeys(new CharSequence[]{username});
+
+        sendKeys(By.id("text"), username);
     }
 
     @And("I enter a password {}")
     public void i_enter_a_password(String password) {
-        this.driver.findElement(By.id("password")).sendKeys(new CharSequence[]{password});
+//        this.driver.findElement(By.id("password")).sendKeys(new CharSequence[]{password});
+        sendKeys(By.id("password"), password);
     }
 
     @And("I click on the Login button")
     public void i_click_on_the_login_button() {
-        this.driver.findElement(By.id("login-button")).click();
+//        this.driver.findElement(By.id("login-button")).click();
+        clickElement(By.id("login-button"));
     }
 
     @Then("a validation succeeded message is displayed")
