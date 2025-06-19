@@ -8,12 +8,14 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import pageObjects.Base_PO;
+
 import java.time.Duration;
 import java.util.ArrayList;
 
 import static driver.DriverFactory.getDriver;
 
-public class Login_Steps {
+public class Login_Steps extends Base_PO {
     private WebDriver driver = getDriver();
 
     @Given("I access the webdriver university home page")
