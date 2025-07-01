@@ -77,7 +77,8 @@ public class Contact_Us_Steps extends Base_PO {
     @And("I click on the submit button")
     public void i_click_on_the_submit_button() {
 //        driver.findElement(By.xpath("//input[@type='submit']")).click();
-        clickElement(By.xpath("//input[@type='submit']"));
+//        clickElement(By.xpath("//input[@type='submit']"));
+        contact_us_po.clickOnSubmitButton();
     }
 
     @Then("I should be presented with a successful contact us submission message")

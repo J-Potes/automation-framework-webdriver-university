@@ -16,6 +16,9 @@ public class Contact_Us_PO extends Base_PO{
     private @FindBy(xpath = "//textarea[@name='message']")
     WebElement comment_TextField;
 
+    private @FindBy(xpath = "//input[@type='submit']")
+    WebElement submit_button;
+
     public Contact_Us_PO(){
         super();
     }
@@ -38,5 +41,9 @@ public class Contact_Us_PO extends Base_PO{
 
     public void setComment(String comment){
         sendKeys(comment_TextField, comment);
+    }
+
+    public void clickOnSubmitButton(){
+        clickElement(submit_button);
     }
 }
