@@ -19,6 +19,9 @@ public class Contact_Us_PO extends Base_PO{
     private @FindBy(xpath = "//input[@type='submit']")
     WebElement submit_button;
 
+    private @FindBy(xpath = "//div[@id='contact_reply']/h1")
+    WebElement submission_Message;
+
     public Contact_Us_PO(){
         super();
     }
@@ -45,5 +48,9 @@ public class Contact_Us_PO extends Base_PO{
 
     public void clickOnSubmitButton(){
         clickElement(submit_button);
+    }
+
+    public String getSubmissionMessage(){
+        return submission_Message.getText();
     }
 }

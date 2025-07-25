@@ -83,7 +83,6 @@ public class Contact_Us_Steps extends Base_PO {
 
     @Then("I should be presented with a successful contact us submission message")
     public void i_should_be_presented_with_a_successful_contact_us_submission_message() {
-        WebElement contactUs_Submission_Message = driver.findElement(By.xpath("//div[@id='contact_reply']/h1"));
-        Assert.assertEquals(contactUs_Submission_Message.getText(), "Thank You for your Message!");
+        Assert.assertEquals(contact_us_po.getSubmissionMessage(), "Thank You for your Message!");
     }
 }
