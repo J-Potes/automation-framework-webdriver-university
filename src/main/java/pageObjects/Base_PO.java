@@ -16,6 +16,11 @@ public class Base_PO {
         PageFactory.initElements(getDriver(), this);
     }
 
+    // If a driver is sent on the constructor, this driver will be configured (for changing pages)
+    public Base_PO(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+    }
+
     public WebDriver getDriver(){
         return DriverFactory.getDriver();
     }
