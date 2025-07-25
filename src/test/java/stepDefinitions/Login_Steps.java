@@ -9,6 +9,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pageObjects.Base_PO;
+import pageObjects.Contact_Us_PO;
+import pageObjects.Home_PO;
+import pageObjects.Login_PO;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -18,44 +21,36 @@ import static driver.DriverFactory.getDriver;
 public class Login_Steps extends Base_PO {
     private WebDriver driver = getDriver();
 
+    private Home_PO home_po;
+    private Login_PO login_po;
+
+    public Login_Steps(Home_PO home_po){
+        this.home_po = home_po;
+    }
+
     @Given("I access the webdriver university home page")
     public void i_access_the_webdriver_university_home_page() {
-        navigateTo_URL("https://www.webdriveruniversity.com");
+        home_po.navigateTo_WebDriverUniversity_Home_Page();
     }
 
     @And("I click on the Login Portal option")
     public void i_click_on_the_login_portal_option() {
-        WebElement element = driver.findElement(By.xpath("//a[@id='login-portal']"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true); window.scrollBy(0,-100);", element);
-
-//        element.click();
-        clickElement(element);
-
-//        this.driver.findElement(By.id("login-portal")).click();
-
-        ArrayList<String> tabs = new ArrayList<>(this.driver.getWindowHandles());
-        this.driver.switchTo().window(tabs.get(1)); // id of the tab
+        login_po = home_po.clickOnLoginPortalandEnterLoginPage();
     }
 
     @When("I enter a username {}")
     public void i_enter_a_username(String username) {
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("text")));
-//        element.sendKeys(new CharSequence[]{username});
-
-        sendKeys(By.id("text"), username);
+        login_po.setUsername(username);
     }
 
     @And("I enter a password {}")
     public void i_enter_a_password(String password) {
-//        this.driver.findElement(By.id("password")).sendKeys(new CharSequence[]{password});
-        sendKeys(By.id("password"), password);
+        login_po.setPassword(password);
     }
 
     @And("I click on the Login button")
     public void i_click_on_the_login_button() {
-//        this.driver.findElement(By.id("login-button")).click();
-        clickElement(By.id("login-button"));
+        login_po.clickOnLoginButton();
     }
 
     @Then("a validation succeeded message is displayed")
