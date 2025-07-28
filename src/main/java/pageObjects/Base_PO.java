@@ -70,4 +70,8 @@ public class Base_PO {
         String alert_Message_Text = getDriver().switchTo().alert().getText();
         Assert.assertEquals(alert_Message_Text, text);
     }
+
+    public void validateText(String actualText, String expectedText){
+        Assert.assertEquals(actualText, expectedText);
+    }
 }

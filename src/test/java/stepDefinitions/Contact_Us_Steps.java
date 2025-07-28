@@ -83,6 +83,6 @@ public class Contact_Us_Steps extends Base_PO {
 
     @Then("I should be presented with a successful contact us submission message")
     public void i_should_be_presented_with_a_successful_contact_us_submission_message() {
-        Assert.assertEquals(contact_us_po.getSubmissionMessage(), "Thank You for your Message!");
+        contact_us_po.validateSubmissionMessage();
     }
 }

@@ -50,7 +50,7 @@ public class Contact_Us_PO extends Base_PO{
         clickElement(submit_button);
     }
 
-    public String getSubmissionMessage(){
-        return submission_Message.getText();
+    public void validateSubmissionMessage(){
+        validateText(submission_Message.getText(),"Thank You for your Message!");
     }
 }
