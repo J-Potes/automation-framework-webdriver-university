@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -61,5 +62,12 @@ public class Base_PO {
     public void switchToTab(int tabId){
         ArrayList<String> tabs = new ArrayList<>(getDriver().getWindowHandles());
         getDriver().switchTo().window(tabs.get(tabId));
+    }
+
+    public void waitForAlert_and_validateText(String text){
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.alertIsPresent());
+        String alert_Message_Text = getDriver().switchTo().alert().getText();
+        Assert.assertEquals(alert_Message_Text, text);
     }
 }

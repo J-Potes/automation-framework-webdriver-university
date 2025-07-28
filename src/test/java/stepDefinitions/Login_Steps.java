@@ -4,23 +4,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import pageObjects.Base_PO;
-import pageObjects.Contact_Us_PO;
 import pageObjects.Home_PO;
 import pageObjects.Login_PO;
 
-import java.time.Duration;
-import java.util.ArrayList;
-
-import static driver.DriverFactory.getDriver;
-
 public class Login_Steps extends Base_PO {
-    private WebDriver driver = getDriver();
-
     private Home_PO home_po;
     private Login_PO login_po;
 
@@ -55,21 +43,16 @@ public class Login_Steps extends Base_PO {
 
     @Then("a validation succeeded message is displayed")
     public void a_validation_succeeded_message_is_displayed() {
-        String alertMessage = this.driver.switchTo().alert().getText();
-        Assert.assertEquals(alertMessage, "validation succeeded");
+        login_po.validate_SuccessfulLogin_Message();
     }
 
     @Then("a validation failed message is displayed")
     public void a_validation_failed_message_is_displayed() {
-        Alert alert = this.driver.switchTo().alert();
-        String alertMessage = this.driver.switchTo().alert().getText();
-        Assert.assertEquals(alertMessage, "validation failed");
+        login_po.validate_unsuccessfulLogin_Message();
     }
 
     @Then("I should be presented with the message {}")
     public void i_should_be_presented_with_the_message(String expectedMessage) {
-        Alert alert = this.driver.switchTo().alert();
-        String alertMessage = this.driver.switchTo().alert().getText();
-        Assert.assertEquals(alertMessage, expectedMessage);
+        login_po.waitForAlert_and_validateText(expectedMessage);
     }
 }
