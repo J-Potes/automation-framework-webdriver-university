@@ -21,22 +21,22 @@ public class Contact_Us_Steps extends Base_PO {
 
     @When("I enter a unique first name")
     public void i_enter_a_unique_first_name() {
-        contact_us_po.setFirstName("AutoFN" + generateRandomNumber(5));
+        contact_us_po.setUniqueFirstName();
     }
 
     @And("I enter a unique last name")
     public void i_enter_a_unique_last_name() {
-        contact_us_po.setLastName("AutoLN" + generateRandomNumber(5));
+        contact_us_po.setUniqueLastName();
     }
 
     @And("I enter a unique email address")
     public void i_enter_a_unique_email_address() {
-        contact_us_po.setEmail("AutoEmail" + generateRandomNumber(5) + "@email.com");
+        contact_us_po.setUniqueEmail();
     }
 
     @And("I enter a unique comment")
     public void i_enter_a_unique_comment() {
-        contact_us_po.setComment("Hello world " + generateRandomString(20));
+        contact_us_po.setUniqueComment();
     }
 
     @When("I enter a specific first name {word}")

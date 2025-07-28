@@ -53,4 +53,20 @@ public class Contact_Us_PO extends Base_PO{
     public void validateSubmissionMessage(){
         validateText(submission_Message.getText(),"Thank You for your Message!");
     }
+
+    public void setUniqueFirstName(){
+        setFirstName("AutoFN" + generateRandomNumber(5));
+    }
+
+    public void setUniqueLastName(){
+        setLastName("AutoLN" + generateRandomNumber(5));
+    }
+
+    public void setUniqueEmail(){
+        setEmail("AutoEmail" + generateRandomNumber(5) + "@email.com");
+    }
+
+    public void setUniqueComment(){
+        setComment("Hello world " + generateRandomString(20));
+    }
 }
