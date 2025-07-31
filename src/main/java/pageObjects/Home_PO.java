@@ -4,6 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utils.Global_Vars;
 
 public class Home_PO extends Base_PO{
     private @FindBy(xpath = "//a[@id='login-portal']")
@@ -18,7 +19,7 @@ public class Home_PO extends Base_PO{
     }
 
     public void navigateTo_WebDriverUniversity_Home_Page(){
-        navigateTo_URL("https://www.webdriveruniversity.com");
+        navigateTo_URL(Global_Vars.WEBDRIVER_UNIVERSITY_HOMEPAGE_URL);
     }
 
     public Login_PO clickOnLoginPortalandEnterLoginPage(){

@@ -2,6 +2,7 @@ package pageObjects;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utils.Global_Vars;
 
 public class Contact_Us_PO extends Base_PO{
     private @FindBy(xpath = "//input[@name='first_name']")
@@ -27,7 +28,7 @@ public class Contact_Us_PO extends Base_PO{
     }
 
     public void navigateTo_WebDriverUniversity_ContactUs_Page(){
-        navigateTo_URL("https://www.webdriveruniversity.com/Contact-Us/contactus.html");
+        navigateTo_URL(Global_Vars.WEBDRIVER_UNIVERSITY_HOMEPAGE_URL + "/Contact-Us/contactus.html");
     }
 
     public void setFirstName(String firstName){
