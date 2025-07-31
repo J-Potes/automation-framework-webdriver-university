@@ -51,6 +51,7 @@ public class Contact_Us_PO extends Base_PO{
     }
 
     public void validateSubmissionMessage(){
+        waitFor(submission_Message);
         validateText(submission_Message.getText(),"Thank You for your Message!");
     }
 
